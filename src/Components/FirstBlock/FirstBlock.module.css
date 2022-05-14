@@ -1,0 +1,24 @@
+.imageContainer {
+    height: 100%;
+    width: 100%;
+    background-image: url("https://img.wallpapersafari.com/tablet/768/1024/2/48/7XbFUq.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.imageContainer > h3 {
+    margin: 0;
+}
+
+.imageContainer > p {
+    margin: 5px 20px;
+}
+
+.imageContainer > button {
+    background: lightgray;
+    border: cornflowerblue 1px solid;
+    border-radius: 5px;
+    box-shadow: 2px 3px 5px 2px rgb(255 255 255 / 70%);
+    height: 40px;
+}

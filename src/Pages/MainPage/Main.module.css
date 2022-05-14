@@ -1,0 +1,25 @@
+.mainContainer {
+    margin: 10px;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.pictureBox {
+    background: lightblue;
+    width: 50%;
+    height: 50%;
+}
+
+.secondBlock {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.secondBlock > img {
+    width: 50%;
+    height: 50%;
+}
