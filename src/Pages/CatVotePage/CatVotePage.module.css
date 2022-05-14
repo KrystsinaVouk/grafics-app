@@ -21,3 +21,7 @@
 .cardAvatar {
     background-color: salmon;
 }
+
+.cardContent {
+    padding: 8px !important;
+}

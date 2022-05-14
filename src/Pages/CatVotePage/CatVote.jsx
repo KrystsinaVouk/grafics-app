@@ -14,6 +14,7 @@ import {useHistory, useParams} from "react-router-dom";
 import {useActions} from "../../store/hooks/useActions";
 import {useSelector} from "react-redux";
 import kittenPicture from "../../assets/img/kitten.png"
+import catIcon from "../../assets/img/favicon.ico"
 import styles from './CatVotePage.module.css'
 
 function CatVote() {
@@ -43,13 +44,15 @@ function CatVote() {
     }
 
     if (specificVote) {
+        console.log(specificVote);
         return (
             <Card className={styles.cardContainer}>
                 <Typography variant={'h6'}>Cat Vote Information</Typography>
                 <CardHeader
+                    className={styles.cardContent}
                     avatar={
-                        <Avatar aria-label="recipe" className={styles.cardAvatar}>
-                            R
+                        <Avatar className={styles.cardAvatar}>
+                            <img src={catIcon} alt={'catIcon'}/>
                         </Avatar>
                     }
                     action={
@@ -64,17 +67,20 @@ function CatVote() {
                     className={styles.cardMedia}
                     image={kittenPicture}
                 />
-                <CardContent>
-                    <Typography variant="body2" color="textSecondary" component="p">
+                <CardContent className={styles.cardContent}>
+                    <Typography variant="body2">
                         {`Sub ID: ${specificVote['sub_id']}`}
+                    </Typography>
+                    <Typography variant="body2">
+                        {`Image ID: ${specificVote['id']}`}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <FavoriteIcon/>
-                    </IconButton>
                     <IconButton aria-label="share" onClick={() => history.push('/about/votes')}>
                         <ArrowBackIcon/>
+                    </IconButton>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon/>
                     </IconButton>
                 </CardActions>
             </Card>

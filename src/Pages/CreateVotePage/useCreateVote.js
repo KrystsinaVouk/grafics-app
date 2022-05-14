@@ -5,7 +5,6 @@ import {useActions} from "../../store/hooks/useActions";
 export const useCreateVote = () => {
     const [imageId, setImageId] = useState('');
     const [subId, setSubId] = useState('');
-    const [errorText, setErrorText] = useState('');
     const history = useHistory();
     const {postVote} = useActions();
     const isDisabled = !(!!subId && !!imageId);
@@ -13,7 +12,6 @@ export const useCreateVote = () => {
     const submit = (event) => {
         event.preventDefault();
         if (!imageId || !subId) {
-            setErrorText('The field cannot be empty');
             return;
         }
         postVote(imageId, subId);
@@ -21,7 +19,6 @@ export const useCreateVote = () => {
     }
 
     return {
-        errorText,
         imageId,
         subId,
         isDisabled,

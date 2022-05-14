@@ -8,7 +8,7 @@ import styles from './CreateVotePage.module.css'
 function CreateVote() {
 
     const {
-        imageId, subId, isDisabled, errorText, setImageId, setSubId, submit
+        imageId, subId, isDisabled, setImageId, setSubId, submit
     } = useCreateVote();
 
 
@@ -17,15 +17,15 @@ function CreateVote() {
             <Typography gutterBottom variant={'h4'}>Post a vote</Typography>
             <form className={styles.form} noValidate autoComplete="off">
                 <TextField
-                    error={!!errorText}
-                    helperText={errorText}
-                    color={'primary'} value={imageId} label="image_id" variant="outlined"
+                    className={styles.textField}
+                    value={imageId}
+                    label="image_id"
+                    variant="outlined"
                     onChange={(event) => setImageId(event.target.value)}
                 />
                 <TextField
-                    error={!!errorText}
-                    helperText={errorText}
                     value={subId}
+                    className={styles.textField}
                     label="please type 'test' here..."
                     variant="outlined"
                     onChange={(event) => setSubId(event.target.value)}
