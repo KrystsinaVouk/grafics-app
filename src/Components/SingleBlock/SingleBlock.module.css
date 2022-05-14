@@ -7,7 +7,10 @@
     align-items: center;
     flex-direction: column;
 }
-.imageContainer > h3 {
+
+.imageContainer > h2 {
+    text-transform: uppercase;
+    text-align: center;
     margin: 0;
 }
 
@@ -15,10 +18,6 @@
     margin: 5px 20px;
 }
 
-.imageContainer > button {
-    background: lightgray;
-    border: cornflowerblue 1px solid;
-    border-radius: 5px;
-    box-shadow: 2px 3px 5px 2px rgb(255 255 255 / 70%);
-    height: 40px;
+.imageContainer > a {
+    text-decoration: none;
 }

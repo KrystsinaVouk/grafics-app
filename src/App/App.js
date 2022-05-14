@@ -1,13 +1,13 @@
 import {Routing} from "../Routing/Routing";
 import {BrowserRouter} from "react-router-dom";
-import Navbar from "../Components/Navbar/Navbar";
 import React from "react";
+import MenuBar from "../Components/MenuBar/MenuBar";
 
 function App() {
     return (
         <>
             <BrowserRouter>
-                <Navbar />
+                <MenuBar/>
                 <Routing/>
             </BrowserRouter>
         </>

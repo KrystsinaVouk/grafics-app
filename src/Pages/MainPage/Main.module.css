@@ -1,10 +1,10 @@
 .mainContainer {
-    margin: 10px;
-    width: 900px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     height: 100vh;
+    width: 85vw;
 }
 
 .pictureBox {
@@ -19,7 +19,33 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 .secondBlock > img {
+    object-fit: cover;
     width: 50%;
     height: 50%;
+}
+
+
+.pictureBox:nth-child(3) {
+    color: black;
+    background-image: url("/src/assets/img/glitter.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.pictureBox:nth-child(3) > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 152, 237, 50%);
+}
+
+.pictureBox:nth-child(3) > div > p {
+    text-transform: uppercase;
+    padding: 0 50px;
+    text-align: center;
 }

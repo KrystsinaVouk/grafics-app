@@ -1,33 +1,42 @@
 import React from 'react';
-import FirstBlock from "../../Components/FirstBlock/FirstBlock";
-import {propsForBlock} from "../../Components/FirstBlock/firstBlockData";
+import SingleBlock from "../../Components/SingleBlock/SingleBlock";
+import {singleBlockProps} from "../../Components/SingleBlock/singleBlockProps";
+
 import styles from './Main.module.css'
-import {useLocation} from "react-router-dom";
+import catPicture from '../../assets/img/cat.png'
+import blueNature from '../../assets/img/blueNature.png'
+import darkNature from '../../assets/img/darkNature.png'
+import birds from '../../assets/img/birds.png'
+
 
 function Main() {
-    const {firstBlock, fourthBlock} = propsForBlock;
-    const pathName = useLocation();
-    console.log(pathName);
+    const {firstBlock, thirdBlock, fourthBlock} = singleBlockProps;
 
     return (
         <>
             <div className={styles.mainContainer}>
                 <div className={styles.pictureBox}>
-                    <FirstBlock
+                    <SingleBlock
                         title={firstBlock.title}
                         text={firstBlock.text}
                     />
                 </div>
                 <div className={styles.secondBlock}>
-                    <img alt={'first'} src={`https://th.bing.com/th/id/R.d8c88f892c58773f1d09eac0b5247d9f?rik=04nGhl484F1QjQ&pid=ImgRaw&r=0`}/>
-                    <img alt={'second'} src={`https://hddesktopwallpapers.in/wp-content/uploads/2015/09/goose-images.jpg`}/>
-                    <img alt={'third'} src={`https://www.picamon.com/wp-content/uploads/2020/10/Picamon-northern-lights-0-5f8b42955e1ad`}/>
-                    <img alt={'fourth'} src={`https://www.pcclean.io/wp-content/gallery/birds/331335.jpg`}/>
-
+                    <img alt={'blueNature'}
+                         src={blueNature}/>
+                    <img alt={'catPicture'}
+                         src={catPicture}/>
+                    <img alt={'birds'}
+                         src={birds}/>
+                    <img alt={'darkNature'} src={darkNature}/>
                 </div>
-                <div className={styles.pictureBox}>Nav</div>
                 <div className={styles.pictureBox}>
-                    <FirstBlock
+                    <div>
+                        <p>{thirdBlock.text}</p>
+                    </div>
+                </div>
+                <div className={styles.pictureBox}>
+                    <SingleBlock
                         title={fourthBlock.title}
                         text={fourthBlock.text}
                     />

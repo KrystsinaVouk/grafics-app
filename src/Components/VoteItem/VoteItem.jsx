@@ -6,7 +6,7 @@ import {useActions} from "../../redux/hooks/useActions";
 
 function VoteItem({vote}) {
 
-    const { deleteVote } = useActions();
+    const {deleteVote} = useActions();
     const history = useHistory();
 
     const removeVote = () => {
@@ -17,7 +17,7 @@ function VoteItem({vote}) {
     };
 
     return (
-        <Card>
+        <Card style={{margin: '5px 0'}}>
             <CardContent>
                 <Typography variant="h5" gutterBottom>
                     Sub_id: {vote.sub_id}
@@ -30,8 +30,9 @@ function VoteItem({vote}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button onClick={() => clickHandler()}>Learn More</Button>
-                <Button variant={'outlined'} size="small" onClick={removeVote}>Delete Vote</Button>
+                <Button color={'primary'} variant={'contained'} size="small" onClick={() => clickHandler()}>Open
+                    Vote</Button>
+                <Button color={'secondary'} variant={'outlined'} size="small" onClick={removeVote}>Delete Vote</Button>
             </CardActions>
         </Card>
     );

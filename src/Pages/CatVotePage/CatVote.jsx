@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,7 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import {red} from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function CatVote() {
-    const { id } = useParams();
+    const {id} = useParams();
     const {fetchSpecificVote} = useActions();
     const {specificVote, error} = useSelector(state => state.cat);
     const classes = useStyles();
@@ -59,17 +59,17 @@ export default function CatVote() {
                             <MoreVertIcon/>
                         </IconButton>
                     }
-                    title={specificVote['sub_id']}
-                    subheader={specificVote['created_at']}
+                    title={`User ID: ${specificVote['user_id']}`}
+                    subheader={`Created at: ${specificVote['created_at']}`}
                 />
                 <CardMedia
                     className={classes.media}
-                    image="/static/images/cards/paella.jpg"
+                    image="https://th.bing.com/th/id/R.ac8f97c899cae5094e1d0fd57a0efb0a?rik=pum%2fi2b6NUQKug&pid=ImgRaw&r=0"
                     title="Paella dish"
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {specificVote.user_id}
+                        {`Sub ID: ${specificVote['sub_id']}`}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
