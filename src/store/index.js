@@ -1,4 +1,4 @@
-import {catReducer} from '../reducers';
+import {catReducer} from './reducers';
 import thunk from "redux-thunk";
 import {applyMiddleware, combineReducers, legacy_createStore as createStore} from "redux";
 import {composeWithDevTools} from 'redux-devtools-extension';

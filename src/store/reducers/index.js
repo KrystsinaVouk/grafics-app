@@ -3,6 +3,7 @@ import {catActionTypes} from "../types";
 const initialState = {
     votes: [],
     specificVote: {},
+    loading: false,
     error: '',
 }
 
@@ -11,8 +12,9 @@ export const catReducer = (state = initialState, action) => {
         case catActionTypes.SET_VOTES:
             return {...state, votes: [...action.payload]}
         case catActionTypes.SET_SPECIFIC_VOTE:
-            console.log(action.payload);
             return {...state, specificVote: action.payload}
+        case catActionTypes.SET_LOADING:
+            return {...state, loading: action.payload}
         case catActionTypes.FETCH_VOTES_ERROR:
             return {...state, error: 'Error occurred'}
         case catActionTypes.CREATE_VOTE:

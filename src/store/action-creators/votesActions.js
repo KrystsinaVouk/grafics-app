@@ -15,6 +15,9 @@ export const createVote = (newVote) => {
 }
 
 export const removeVote = (voteId) => {
-    console.log(typeof voteId)
     return {type: catActionTypes.REMOVE_VOTE, payload: voteId}
+}
+
+export const setLoading = (isLoading) => {
+    return {type: catActionTypes.SET_LOADING, payload: isLoading}
 }

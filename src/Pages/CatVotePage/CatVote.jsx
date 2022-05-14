@@ -8,23 +8,31 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import {useParams} from "react-router-dom";
-import {useActions} from "../../redux/hooks/useActions";
+import {useHistory, useParams} from "react-router-dom";
+import {useActions} from "../../store/hooks/useActions";
 import {useSelector} from "react-redux";
 import kittenPicture from "../../assets/img/kitten.png"
 import styles from './CatVotePage.module.css'
 
-
 function CatVote() {
     const {id} = useParams();
     const {fetchSpecificVote} = useActions();
-    const {specificVote, error} = useSelector(state => state.cat);
+    const {specificVote, loading, error} = useSelector(state => state.cat);
+    const history = useHistory()
 
     useEffect(() => {
         fetchSpecificVote(id);
     }, [id])
+
+    if (loading) {
+        return (
+            <Typography style={{marginTop: 200}} variant={"h3"}>
+                Loading...
+            </Typography>
+        );
+    }
 
     if (error) {
         return (
@@ -65,8 +73,8 @@ function CatVote() {
                     <IconButton aria-label="add to favorites">
                         <FavoriteIcon/>
                     </IconButton>
-                    <IconButton aria-label="share">
-                        <ShareIcon/>
+                    <IconButton aria-label="share" onClick={() => history.push('/about/votes')}>
+                        <ArrowBackIcon/>
                     </IconButton>
                 </CardActions>
             </Card>

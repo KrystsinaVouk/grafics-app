@@ -1,9 +1,9 @@
 import axios from "axios";
-import {config} from "../../config";
+import {config} from "../../Config";
 import {
     createVote,
     fetchVotesError,
-    removeVote,
+    removeVote, setLoading,
     setSpecificVote,
     setVotes,
 } from "./votesActions";
@@ -12,6 +12,7 @@ export const fetchVotes = (limit, page, subId) => {
     const {headers} = config;
     return async (dispatch) => {
         try {
+            dispatch(setLoading(true));
             const {data} = await axios.get(`https://api.thecatapi.com/v1/votes`, {
                 params: {
                     sub_id: subId,
@@ -21,8 +22,10 @@ export const fetchVotes = (limit, page, subId) => {
                 headers,
             });
             dispatch(setVotes(data));
+            dispatch(setLoading(false));
         } catch (e) {
             dispatch(fetchVotesError());
+            dispatch(setLoading(false));
         }
     };
 };
@@ -31,6 +34,7 @@ export const fetchSpecificVote = (voteId) => {
     const {headers} = config;
     return async (dispatch) => {
         try {
+            dispatch(setLoading(true));
             const {data} = await axios.get(
                 `https://api.thecatapi.com/v1/votes/${voteId}`,
                 {
@@ -38,8 +42,10 @@ export const fetchSpecificVote = (voteId) => {
                 }
             );
             dispatch(setSpecificVote(data));
+            dispatch(setLoading(false));
         } catch (e) {
             dispatch(fetchVotesError());
+            dispatch(setLoading(false));
         }
     };
 };

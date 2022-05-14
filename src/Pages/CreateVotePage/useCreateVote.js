@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
-import {useActions} from "../../redux/hooks/useActions";
+import {useActions} from "../../store/hooks/useActions";
 
 export const useCreateVote = () => {
     const [imageId, setImageId] = useState('');

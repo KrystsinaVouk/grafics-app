@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
 import {Grid, Typography} from "@material-ui/core";
-import {useActions} from "../../redux/hooks/useActions";
+import {useActions} from "../../store/hooks/useActions";
 import VoteItem from "../../Components/VoteItem/VoteItem";
 
 let LIMIT = 5;
@@ -9,12 +9,20 @@ let PAGE = 1;
 let SUB_ID = "test";
 
 function Votes() {
-    const {votes, error} = useSelector((state) => state.cat);
+    const {votes, error, loading} = useSelector((state) => state.cat);
     const {fetchVotes} = useActions();
 
     useEffect(() => {
         fetchVotes(LIMIT, PAGE, SUB_ID);
     }, [LIMIT, PAGE, SUB_ID]);
+
+    if (loading) {
+        return (
+            <Typography style={{marginTop: 200}} variant={"h3"}>
+                Loading...
+            </Typography>
+        );
+    }
 
     if (error) {
         return (
