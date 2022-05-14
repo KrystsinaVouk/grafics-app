@@ -1,0 +1,23 @@
+.cardContainer {
+    max-width: 345px;
+    margin-top: 100px;
+    max-height: 450px;
+    border: 1px lightblue solid;
+    font-style: italic;
+    background-color: rgba(64, 152, 237, 20%) !important;
+    box-shadow: 0 5px 5px 5px rgb(0 0 0 / 60%) !important;
+}
+
+.cardContainer > h6 {
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.cardMedia {
+    height: 0;
+    padding-top: 56.25%;
+}
+
+.cardAvatar {
+    background-color: salmon;
+}

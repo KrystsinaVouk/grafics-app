@@ -18,6 +18,15 @@
     margin: 5px 20px;
 }
 
-.imageContainer > a {
-    text-decoration: none;
+.imageContainer > button {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #010c15;
+    border: 1px lightblue solid;
+    font-style: italic;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: rgba(64, 152, 237, 30%);
+    box-shadow: 2px 3px 5px 2px rgb(255 255 255 / 70%);
 }

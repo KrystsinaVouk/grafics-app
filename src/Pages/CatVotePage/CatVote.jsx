@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -8,49 +7,40 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import {red} from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useParams} from "react-router-dom";
 import {useActions} from "../../redux/hooks/useActions";
 import {useSelector} from "react-redux";
+import kittenPicture from "../../assets/img/kitten.png"
+import styles from './CatVotePage.module.css'
 
-const useStyles = makeStyles(() => ({
-    root: {
-        maxWidth: 345,
-        marginTop: 100,
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-}));
 
-export default function CatVote() {
+function CatVote() {
     const {id} = useParams();
     const {fetchSpecificVote} = useActions();
     const {specificVote, error} = useSelector(state => state.cat);
-    const classes = useStyles();
 
     useEffect(() => {
         fetchSpecificVote(id);
-        console.log(specificVote && specificVote)
-    }, [])
+    }, [id])
 
     if (error) {
-        return <h1>{error}</h1>
+        return (
+            <Typography style={{marginTop: 200}} variant={"h3"}>
+                {error}...
+            </Typography>
+        );
     }
 
     if (specificVote) {
         return (
-            <Card className={classes.root}>
+            <Card className={styles.cardContainer}>
+                <Typography variant={'h6'}>Cat Vote Information</Typography>
                 <CardHeader
                     avatar={
-                        <Avatar aria-label="recipe" className={classes.avatar}>
+                        <Avatar aria-label="recipe" className={styles.cardAvatar}>
                             R
                         </Avatar>
                     }
@@ -63,9 +53,8 @@ export default function CatVote() {
                     subheader={`Created at: ${specificVote['created_at']}`}
                 />
                 <CardMedia
-                    className={classes.media}
-                    image="https://th.bing.com/th/id/R.ac8f97c899cae5094e1d0fd57a0efb0a?rik=pum%2fi2b6NUQKug&pid=ImgRaw&r=0"
-                    title="Paella dish"
+                    className={styles.cardMedia}
+                    image={kittenPicture}
                 />
                 <CardContent>
                     <Typography variant="body2" color="textSecondary" component="p">
@@ -83,6 +72,6 @@ export default function CatVote() {
             </Card>
         )
     }
-
-
 }
+
+export default CatVote;

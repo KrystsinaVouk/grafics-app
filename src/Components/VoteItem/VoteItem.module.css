@@ -1,0 +1,6 @@
+.cardBox {
+    margin: 5px;
+    background: thistle !important;
+    box-shadow: 0 5px 5px 2px rgb(0 0 0 / 70%) !important;
+    border: 1px darkgray solid;
+}

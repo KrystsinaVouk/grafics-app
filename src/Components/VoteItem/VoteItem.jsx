@@ -1,23 +1,29 @@
-import React from 'react';
+import React from "react";
 import {useHistory} from "react-router-dom";
-import {Button, Card, CardActions, CardContent, Typography} from "@material-ui/core";
 import {useActions} from "../../redux/hooks/useActions";
 
+import {
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    Typography,
+} from "@material-ui/core";
+import styles from "./VoteItem.module.css";
 
 function VoteItem({vote}) {
-
     const {deleteVote} = useActions();
     const history = useHistory();
 
     const removeVote = () => {
         deleteVote(vote.id);
-    }
+    };
     const clickHandler = () => {
         history.push(`/about/votes/${vote.id}`);
     };
 
     return (
-        <Card style={{margin: '5px 0'}}>
+        <Card className={styles.cardBox}>
             <CardContent>
                 <Typography variant="h5" gutterBottom>
                     Sub_id: {vote.sub_id}
@@ -30,9 +36,22 @@ function VoteItem({vote}) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button color={'primary'} variant={'contained'} size="small" onClick={() => clickHandler()}>Open
-                    Vote</Button>
-                <Button color={'secondary'} variant={'outlined'} size="small" onClick={removeVote}>Delete Vote</Button>
+                <Button
+                    color={"primary"}
+                    variant={"contained"}
+                    size="small"
+                    onClick={() => clickHandler()}
+                >
+                    Open Vote
+                </Button>
+                <Button
+                    color={"secondary"}
+                    variant={"outlined"}
+                    size="small"
+                    onClick={removeVote}
+                >
+                    Delete Vote
+                </Button>
             </CardActions>
         </Card>
     );

@@ -1,35 +1,40 @@
-import React, {useState} from 'react';
-import {Button, TextField} from '@material-ui/core';
+import React from 'react';
+import {Button, Card, TextField, Typography} from '@material-ui/core';
+import {useCreateVote} from "./useCreateVote";
+
 import styles from './CreateVotePage.module.css'
-import {useHistory} from "react-router-dom";
-import {useActions} from "../../redux/hooks/useActions";
+
 
 function CreateVote() {
 
-    const [imageId, setImageId] = useState('');
-    const [subId, setSubId] = useState('');
-    const history = useHistory();
-    const {postVote} = useActions();
+    const {
+        imageId, subId, isDisabled, errorText, setImageId, setSubId, submit
+    } = useCreateVote();
 
-    const submit = () => {
-        if (imageId && subId) {
-            postVote(imageId, subId);
-            history.push('/about');
-        }
-    }
 
     return (
-        <div className={styles.formContainer}>
-            <h2>Post a vote</h2>
+        <Card className={styles.formContainer}>
+            <Typography gutterBottom variant={'h4'}>Post a vote</Typography>
             <form className={styles.form} noValidate autoComplete="off">
-                <TextField color={'primary'} value={imageId} label="image_id" variant="outlined"
-                           onChange={(event) => setImageId(event.target.value)}/>
-                <TextField value={subId} label="sub_id" variant="outlined"
-                           onChange={(event) => setSubId(event.target.value)}/>
+                <TextField
+                    error={!!errorText}
+                    helperText={errorText}
+                    color={'primary'} value={imageId} label="image_id" variant="outlined"
+                    onChange={(event) => setImageId(event.target.value)}
+                />
+                <TextField
+                    error={!!errorText}
+                    helperText={errorText}
+                    value={subId}
+                    label="please type 'test' here..."
+                    variant="outlined"
+                    onChange={(event) => setSubId(event.target.value)}
+                />
 
-                <Button variant="outlined" color={'secondary'} onClick={submit}>Submit One Vote</Button>
+                <Button disabled={isDisabled} variant="outlined" color={'secondary'} onClick={submit}>Submit One
+                    Vote</Button>
             </form>
-        </div>
+        </Card>
     );
 }
 

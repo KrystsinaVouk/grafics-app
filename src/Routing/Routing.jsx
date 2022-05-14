@@ -13,8 +13,8 @@ export const Routing = () => {
             <Route component={About} path={'/about'} exact={true}/>
             <Route component={Votes} path={'/about/votes'} exact={true}/>
             <Route component={CreateVote} path={'/about/create-vote'} exact={true}/>
-            <Route component={CatVote} path={'/about/votes/:id'} />
-            <Redirect to={'/'} />
+            <Route component={CatVote} path={'/about/votes/:id'}/>
+            <Redirect to={'/'}/>
         </Switch>
     );
 };

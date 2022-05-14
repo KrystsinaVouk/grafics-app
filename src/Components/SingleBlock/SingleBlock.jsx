@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 import styles from './SingleBlock.module.css'
 
 function SingleBlock({title, text}) {
+    const history = useHistory();
 
     return (
         <div className={styles.imageContainer}>
             <h2>{title}</h2>
             <p>{text}</p>
-            <Link to={'/about'}>Learn More</Link>
+            <button onClick={() => history.push('/about')}>Learn More</button>
         </div>
     );
 }

@@ -1,0 +1,15 @@
+.aboutContainer {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.aboutContainer > a {
+    border: 1px lightblue solid;
+    font-style: italic;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin-top: 20px;
+    background-color: rgba(64, 152, 237, 30%);
+    box-shadow: 0 5px 5px 5px rgb(0 0 0 / 60%) !important;
+}

@@ -1,7 +1,7 @@
 .appBar {
-    background-color: darkgrey !important;
+    background-color: rgb(171, 203, 241, 70%) !important;
     color: black !important;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, .1) !important;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4) !important;
 }
 
 .iconBtn {

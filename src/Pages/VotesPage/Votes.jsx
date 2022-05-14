@@ -1,31 +1,50 @@
-import React, {useEffect} from 'react';
+import React, {useEffect} from "react";
 import {useSelector} from "react-redux";
+import {Grid, Typography} from "@material-ui/core";
 import {useActions} from "../../redux/hooks/useActions";
 import VoteItem from "../../Components/VoteItem/VoteItem";
 
-function Votes() {
+let LIMIT = 5;
+let PAGE = 1;
+let SUB_ID = "test";
 
-    const {votes, error} = useSelector(state => state.cat);
+function Votes() {
+    const {votes, error} = useSelector((state) => state.cat);
     const {fetchVotes} = useActions();
 
     useEffect(() => {
-       fetchVotes();
-    }, []);
+        fetchVotes(LIMIT, PAGE, SUB_ID);
+    }, [LIMIT, PAGE, SUB_ID]);
 
     if (error) {
-        return <h1>{error}. {votes.length}</h1>
+        return (
+            <Typography style={{marginTop: 200}} variant={"h3"}>
+                {error}...
+            </Typography>
+        );
     }
 
     if (!votes.length) {
-        return <h1>No Cats votes</h1>
+        return (
+            <Typography style={{marginTop: 200}} variant={"h3"}>
+                No Cats Votes...
+            </Typography>
+        );
     } else {
         return (
-            <>
-                <h1>Cats votes</h1>
-                {votes.map(vote => (
-                    <VoteItem key={vote.id} vote={vote}/>
-                ))}
-            </>
+            <Grid container direction={'column'} justifyContent={"center"}
+                  alignItems={"center"}>
+                <Typography gutterBottom variant={"h3"}>Cat votes</Typography>
+                <Grid
+                    container
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                >
+                    {votes.map((vote) => (
+                        <VoteItem key={vote.id} vote={vote}/>
+                    ))}
+                </Grid>
+            </Grid>
         );
     }
 }
