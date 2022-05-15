@@ -1,8 +1,8 @@
-import {useState} from "react";
-import {useHistory} from "react-router-dom";
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 export const useMenuBar = () => {
-    const history = useHistory();
+    const history = useHistory()
 
     const menuItems = [
         {
@@ -21,22 +21,22 @@ export const useMenuBar = () => {
             text: "Post a vote",
             onClick: () => history.push("/about/create-vote"),
         },
-    ];
+    ]
 
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
 
     const handleDrawerOpen = () => {
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const handleDrawerClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
 
     return {
         open,
         menuItems,
         handleDrawerOpen,
         handleDrawerClose,
-    };
-};
+    }
+}

@@ -1,13 +1,8 @@
-import React from "react";
-import {
-    Button,
-    Card,
-    TextField,
-    Typography,
-} from "@material-ui/core";
-import { useCreateVote } from "./useCreateVote";
+import React from "react"
+import { Button, Card, TextField, Typography } from "@material-ui/core"
+import { useCreateVote } from "./useCreateVote"
 
-import styles from "./CreateVotePage.module.css";
+import styles from "./CreateVotePage.module.css"
 
 function CreateVote() {
     const {
@@ -17,7 +12,7 @@ function CreateVote() {
         setImageId,
         setSubId,
         submit,
-    } = useCreateVote();
+    } = useCreateVote()
 
     return (
         <Card className={styles.formContainer}>
@@ -56,7 +51,7 @@ function CreateVote() {
                 </Button>
             </form>
         </Card>
-    );
+    )
 }
 
-export default CreateVote;
+export default CreateVote

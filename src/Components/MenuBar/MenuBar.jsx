@@ -1,21 +1,21 @@
-import * as React from "react";
-import Drawer from "@material-ui/core/Drawer";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import styles from "./MenuBar.module.css";
-import { useMenuBar } from "./useMenuBar";
-import { useSelector } from "react-redux";
+import * as React from "react"
+import Drawer from "@material-ui/core/Drawer"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import AppBar from "@material-ui/core/AppBar"
+import Toolbar from "@material-ui/core/Toolbar"
+import List from "@material-ui/core/List"
+import Typography from "@material-ui/core/Typography"
+import IconButton from "@material-ui/core/IconButton"
+import MenuIcon from "@material-ui/icons/Menu"
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
+import ListItem from "@material-ui/core/ListItem"
+import ListItemIcon from "@material-ui/core/ListItemIcon"
+import ListItemText from "@material-ui/core/ListItemText"
+import InboxIcon from "@material-ui/icons/MoveToInbox"
+import MailIcon from "@material-ui/icons/Mail"
+import styles from "./MenuBar.module.css"
+import { useMenuBar } from "./useMenuBar"
+import { useSelector } from "react-redux"
 
 export default function MenuBar() {
     const {
@@ -23,11 +23,11 @@ export default function MenuBar() {
         handleDrawerOpen,
         handleDrawerClose,
         menuItems,
-    } = useMenuBar();
+    } = useMenuBar()
 
     const { navBarVisibility } = useSelector(
-        (state) => state.ui
-    );
+        (state) => state.ui,
+    )
 
     if (navBarVisibility) {
         return (
@@ -84,13 +84,13 @@ export default function MenuBar() {
                                         primary={text}
                                     />
                                 </ListItem>
-                            )
+                            ),
                         )}
                     </List>
                 </Drawer>
             </div>
-        );
+        )
     } else {
-        return <></>;
+        return <></>
     }
 }

@@ -5,8 +5,8 @@ export const catActionTypes = {
     REMOVE_VOTE: "REMOVE_VOTE",
     SET_SPECIFIC_VOTE: "SET_SPECIFIC_VOTE",
     SET_LOADING: "SET_LOADING",
-};
+}
 
 export const uiActionTypes = {
-    SET_NAVBAR_VISIBILITY: "SET_NAVBAR_VISIBILITY"
-};
+    SET_NAVBAR_VISIBILITY: "SET_NAVBAR_VISIBILITY",
+}

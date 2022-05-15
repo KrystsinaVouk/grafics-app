@@ -1,21 +1,21 @@
-import {useState} from "react";
-import {useHistory} from "react-router-dom";
-import {useActions} from "../../store/hooks/useActions";
+import { useState } from "react"
+import { useHistory } from "react-router-dom"
+import { useActions } from "../../store/hooks/useActions"
 
 export const useCreateVote = () => {
-    const [imageId, setImageId] = useState('');
-    const [subId, setSubId] = useState('');
-    const history = useHistory();
-    const {postVote} = useActions();
-    const isDisabled = !(!!subId && !!imageId);
+    const [imageId, setImageId] = useState("")
+    const [subId, setSubId] = useState("")
+    const history = useHistory()
+    const { postVote } = useActions()
+    const isDisabled = !(!!subId && !!imageId)
 
     const submit = (event) => {
-        event.preventDefault();
+        event.preventDefault()
         if (!imageId || !subId) {
-            return;
+            return
         }
-        postVote(imageId, subId);
-        history.push('/about/votes');
+        postVote(imageId, subId)
+        history.push("/about/votes")
     }
 
     return {
@@ -24,6 +24,6 @@ export const useCreateVote = () => {
         isDisabled,
         setImageId,
         setSubId,
-        submit
+        submit,
     }
 }
