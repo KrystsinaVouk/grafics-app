@@ -18,7 +18,7 @@ export const useMenuBar = () => {
             onClick: () => history.push("/about/votes"),
         },
         {
-            text: "Create Vote",
+            text: "Post a vote",
             onClick: () => history.push("/about/create-vote"),
         },
     ];
