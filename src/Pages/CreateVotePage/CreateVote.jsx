@@ -1,8 +1,8 @@
-import React from "react"
-import { Button, Card, TextField, Typography } from "@material-ui/core"
-import { useCreateVote } from "./useCreateVote"
+import React from "react";
+import { Button, Card, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@material-ui/core";
+import { useCreateVote } from "./useCreateVote";
 
-import styles from "./CreateVotePage.module.css"
+import styles from "./CreateVotePage.module.css";
 
 function CreateVote() {
     const {
@@ -32,15 +32,20 @@ function CreateVote() {
                         setImageId(event.target.value)
                     }
                 />
-                <TextField
-                    value={subId}
+                <FormControl
                     className={styles.textField}
-                    label="please type 'test' here..."
-                    variant="outlined"
-                    onChange={(event) =>
-                        setSubId(event.target.value)
-                    }
-                />
+                    sx={{ m: 1, minWidth: 120 }}>
+                    <InputLabel id="demo-simple-select-label">Sub Id</InputLabel>
+                    <Select
+                        value={subId}
+                        label="SubId"
+                        onChange={(event) =>
+                            setSubId(event.target.value)
+                        }
+                    >
+                        <MenuItem value={"test"}>test</MenuItem>
+                    </Select>
+                </FormControl>
 
                 <Button
                     disabled={isDisabled}

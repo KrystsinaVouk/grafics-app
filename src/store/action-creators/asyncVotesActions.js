@@ -1,5 +1,5 @@
-import { http } from "../../Config"
-import { createVote, fetchVotesError, removeVote, setLoading, setSpecificVote, setVotes } from "./votesActions"
+import { http } from "../../Config";
+import { createVote, fetchVotesError, removeVote, setLoading, setSpecificVote, setVotes } from "./votesActions";
 
 export const fetchVotes = (limit, page, subId) => {
     return async (dispatch) => {
@@ -13,8 +13,8 @@ export const fetchVotes = (limit, page, subId) => {
             dispatch(setVotes(data))
             dispatch(setLoading(false))
         } catch (err) {
-            dispatch(setLoading(false))
-            dispatch(fetchVotesError())
+            dispatch(fetchVotesError());
+            dispatch(setLoading(false));
         }
     }
 }

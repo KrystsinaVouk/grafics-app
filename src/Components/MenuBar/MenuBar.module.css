@@ -1,5 +1,6 @@
 .appBar {
-    background-color: rgb(171, 203, 241, 70%) !important;
+    background: rgb(1, 21, 62) !important;
+    background: linear-gradient(270deg, rgba(1, 21, 62, 1) 0%, rgba(207, 195, 250, 1) 99%, rgba(240, 240, 240, 1) 100%) !important;
     color: black !important;
     box-shadow: 0 5px 5px rgba(0, 0, 0, .4) !important;
 }

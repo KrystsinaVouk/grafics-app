@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "axios";
 
 export const headers = {
     Accept: "application/json",
@@ -27,6 +27,7 @@ class Http {
     }
 
     get(url, params) {
+        console.log(url);
         return this.http.get(url, {
             params: params,
         })

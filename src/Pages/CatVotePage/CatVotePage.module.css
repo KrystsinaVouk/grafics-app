@@ -4,7 +4,8 @@
     max-height: 450px;
     border: 1px lightblue solid;
     font-style: italic;
-    background-color: rgba(64, 152, 237, 20%) !important;
+    background: rgb(237, 239, 245) !important;
+    background: linear-gradient(270deg, rgba(237, 239, 245, 1) 0%, rgba(162, 142, 233, 1) 100%, rgba(240, 240, 240, 1) 100%) !important;
     box-shadow: 0 5px 5px 5px rgb(0 0 0 / 60%) !important;
 }
 
