@@ -1,13 +1,13 @@
-import {catActionTypes} from "../types";
+import {catActionTypes, uiActionTypes} from "../types";
 
-const initialState = {
+const initialCatState = {
     votes: [],
     specificVote: {},
     loading: false,
     error: '',
 }
 
-export const catReducer = (state = initialState, action) => {
+export const catReducer = (state = initialCatState, action) => {
     switch (action.type) {
         case catActionTypes.SET_VOTES:
             return {...state, votes: [...action.payload]}
@@ -21,6 +21,19 @@ export const catReducer = (state = initialState, action) => {
             return {...state, votes: state.votes.push(action.payload)}
         case catActionTypes.REMOVE_VOTE:
             return {...state, votes: state.votes.filter(vote => vote.id !== action.payload)}
+        default:
+            return state;
+    }
+}
+
+const initialUIState = {
+    navBarVisibility: false
+}
+
+export const UIReducer = (state = initialUIState, action) => {
+    switch (action.type) {
+        case uiActionTypes.SET_NAVBAR_VISIBILITY:
+            return {...state, navBarVisibility: action.payload}
         default:
             return state;
     }

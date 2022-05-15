@@ -1,23 +1,25 @@
 import {catActionTypes} from "../types";
 
-
 export const setVotes = (fetchedVotes) => {
-    return {type: catActionTypes.SET_VOTES, payload: fetchedVotes}
-}
+    return {type: catActionTypes.SET_VOTES, payload: fetchedVotes};
+};
+
 export const setSpecificVote = (fetchedVote) => {
-    return {type: catActionTypes.SET_SPECIFIC_VOTE, payload: fetchedVote}
-}
+    return {type: catActionTypes.SET_SPECIFIC_VOTE, payload: fetchedVote};
+};
+
 export const fetchVotesError = () => {
-    return {type: catActionTypes.FETCH_VOTES_ERROR}
-}
+    return {type: catActionTypes.FETCH_VOTES_ERROR};
+};
+
 export const createVote = (newVote) => {
-    return {type: catActionTypes.CREATE_VOTE, payload: newVote}
-}
+    return {type: catActionTypes.CREATE_VOTE, payload: newVote};
+};
 
 export const removeVote = (voteId) => {
-    return {type: catActionTypes.REMOVE_VOTE, payload: voteId}
-}
+    return {type: catActionTypes.REMOVE_VOTE, payload: voteId};
+};
 
 export const setLoading = (isLoading) => {
-    return {type: catActionTypes.SET_LOADING, payload: isLoading}
-}
+    return {type: catActionTypes.SET_LOADING, payload: isLoading};
+};
