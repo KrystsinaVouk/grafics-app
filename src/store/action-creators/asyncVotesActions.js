@@ -1,5 +1,5 @@
 import axios from "axios";
-import {config} from "../../Config";
+import {config, http} from "../../Config";
 import {
     createVote,
     fetchVotesError,
@@ -13,7 +13,7 @@ export const fetchVotes = (limit, page, subId) => {
     return async (dispatch) => {
         try {
             dispatch(setLoading(true));
-            const {data} = await axios.get(`https://api.thecatapi.com/v1/votes`, {
+            const {data} = await axios.get(http.baseURL, {
                 params: {
                     sub_id: subId,
                     limit,
@@ -36,7 +36,7 @@ export const fetchSpecificVote = (voteId) => {
         try {
             dispatch(setLoading(true));
             const {data} = await axios.get(
-                `https://api.thecatapi.com/v1/votes/${voteId}`,
+                http.baseURL + voteId,
                 {
                     headers,
                 }
@@ -59,7 +59,7 @@ export const postVote = (imageId, subId) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.post(
-                `https://api.thecatapi.com/v1/votes`,
+                http.baseURL,
                 body,
                 config
             );
@@ -75,12 +75,11 @@ export const deleteVote = (voteId) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.delete(
-                `https://api.thecatapi.com/v1/votes/${voteId}`,
+                http.baseURL + voteId,
                 {
                     headers,
                 }
             );
-
             data.message === `SUCCESS` && dispatch(removeVote(voteId));
         } catch (err) {
             dispatch(fetchVotesError());
