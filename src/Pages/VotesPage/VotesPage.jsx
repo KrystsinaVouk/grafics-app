@@ -5,13 +5,13 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Grid, Typography } from "@material-ui/core";
 import { useActions } from "../../store/hooks/useActions";
 import VoteItem from "../../Components/VoteItem/VoteItem";
-import styles from "./Votes.module.css";
+import styles from "./VotesPage.module.css";
 
 let LIMIT = 5;
 let PAGE = 1;
 let SUB_ID = "test";
 
-function Votes() {
+function VotesPage() {
     const { votes, error, loading } = useSelector(
         (state) => state.cat,
     );
@@ -78,4 +78,4 @@ function Votes() {
     )
 }
 
-export default Votes
+export default VotesPage;

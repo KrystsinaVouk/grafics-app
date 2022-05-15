@@ -1,20 +1,20 @@
-import React, { useEffect } from "react"
-import SingleBlock from "../../Components/SingleBlock/SingleBlock"
-import { singleBlockProps } from "../../Components/SingleBlock/singleBlockProps"
-import { useActions } from "../../store/hooks/useActions"
-import styles from "./Main.module.css"
-import catPicture from "../../assets/img/cat.png"
-import blueNature from "../../assets/img/blueNature.png"
-import darkNature from "../../assets/img/darkNature.png"
-import birds from "../../assets/img/birds.png"
+import React, { useEffect } from "react";
+import SingleBlock from "../../Components/SingleBlock/SingleBlock";
+import { singleBlockProps } from "../../Components/SingleBlock/singleBlockProps";
+import { useActions } from "../../store/hooks/useActions";
+import styles from "./MainPage.module.css";
+import catPicture from "../../assets/img/cat.png";
+import blueNature from "../../assets/img/blueNature.png";
+import darkNature from "../../assets/img/darkNature.png";
+import birds from "../../assets/img/birds.png";
 
-function Main() {
-    const { firstBlock, thirdBlock, fourthBlock } = singleBlockProps
-    const { setNavbarVisibility } = useActions()
+function MainPage() {
+    const { firstBlock, thirdBlock, fourthBlock } = singleBlockProps;
+    const { setNavbarVisibility } = useActions();
 
     useEffect(() => {
-        setNavbarVisibility(false)
-    }, [])
+        setNavbarVisibility(false);
+    }, []);
 
     return (
         <div className={styles.mainContainer}>
@@ -39,4 +39,4 @@ function Main() {
     )
 }
 
-export default Main
+export default MainPage;

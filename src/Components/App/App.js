@@ -1,7 +1,7 @@
-import { Routing } from "../../Routing/Routing"
-import { BrowserRouter } from "react-router-dom"
-import React from "react"
-import MenuBar from "../MenuBar/MenuBar"
+import React from "react";
+import { Routing } from "../../Routing/Routing";
+import { BrowserRouter } from "react-router-dom";
+import MenuBar from "../MenuBar/MenuBar";
 
 function App() {
     return (
@@ -9,7 +9,7 @@ function App() {
             <MenuBar />
             <Routing />
         </BrowserRouter>
-    )
+    );
 }
 
 export default App

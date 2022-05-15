@@ -4,7 +4,7 @@ import { useCreateVote } from "./useCreateVote";
 
 import styles from "./CreateVotePage.module.css";
 
-function CreateVote() {
+function CreateVotePage() {
     const {
         imageId,
         subId,
@@ -12,7 +12,7 @@ function CreateVote() {
         setImageId,
         setSubId,
         submit,
-    } = useCreateVote()
+    } = useCreateVote();
 
     return (
         <Card className={styles.formContainer}>
@@ -26,7 +26,7 @@ function CreateVote() {
                 <TextField
                     className={styles.textField}
                     value={imageId}
-                    label="image_id"
+                    label="Image ID"
                     variant="outlined"
                     onChange={(event) =>
                         setImageId(event.target.value)
@@ -35,10 +35,11 @@ function CreateVote() {
                 <FormControl
                     className={styles.textField}
                     sx={{ m: 1, minWidth: 120 }}>
-                    <InputLabel id="demo-simple-select-label">Sub Id</InputLabel>
+                    <InputLabel>Sub Id</InputLabel>
                     <Select
+                        variant="outlined"
                         value={subId}
-                        label="SubId"
+                        label="Sub ID"
                         onChange={(event) =>
                             setSubId(event.target.value)
                         }
@@ -59,4 +60,4 @@ function CreateVote() {
     )
 }
 
-export default CreateVote
+export default CreateVotePage;
