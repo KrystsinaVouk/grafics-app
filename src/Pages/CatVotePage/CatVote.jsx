@@ -44,7 +44,6 @@ function CatVote() {
     }
 
     if (specificVote) {
-        console.log(specificVote);
         return (
             <Card className={styles.cardContainer}>
                 <Typography variant={'h6'}>Cat Vote Information</Typography>

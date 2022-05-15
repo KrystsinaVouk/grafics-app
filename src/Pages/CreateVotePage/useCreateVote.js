@@ -15,7 +15,7 @@ export const useCreateVote = () => {
             return;
         }
         postVote(imageId, subId);
-        history.push('/about');
+        history.push('/about/votes');
     }
 
     return {
