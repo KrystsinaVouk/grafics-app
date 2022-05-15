@@ -1,25 +1,24 @@
 .mainContainer {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    height: 100vh;
     width: 60vw;
+    background-color: #54dfdf;
 }
 
 .pictureBox {
-    background: lightblue;
     width: 50%;
     height: 50%;
 }
 
-.secondBlock {
+.pictureBox:nth-child(2) {
     width: 50%;
     height: 50%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.secondBlock > img {
+.pictureBox:nth-child(2) > img {
+    opacity: 0.6;
     object-fit: cover;
     width: 50%;
     height: 50%;

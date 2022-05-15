@@ -21,7 +21,7 @@ function MainPage() {
             <div className={styles.pictureBox}>
                 <SingleBlock title={firstBlock.title} text={firstBlock.text} />
             </div>
-            <div className={styles.secondBlock}>
+            <div className={styles.pictureBox}>
                 <img alt={"blueNature"} src={blueNature} />
                 <img alt={"catPicture"} src={catPicture} />
                 <img alt={"birds"} src={birds} />
