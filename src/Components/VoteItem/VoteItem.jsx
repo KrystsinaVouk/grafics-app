@@ -1,20 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import { useActions } from "../../store/hooks/useActions";
-
 import { Button, Card, CardActions, CardContent, Typography } from "@material-ui/core";
 import styles from "./VoteItem.module.css";
+import { useVoteItem } from "./useVoteItem";
 
 function VoteItem({ vote }) {
-    const { deleteVote } = useActions();
-    const history = useHistory();
 
-    const removeVote = () => {
-        deleteVote(vote.id);
-    };
-    const clickHandler = () => {
-        history.push(`/about/votes/${vote.id}`);
-    }
+    const { removeVote, clickHandler } = useVoteItem(vote.id);
 
     return (
         <Card className={styles.cardBox}>
